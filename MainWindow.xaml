@@ -1,0 +1,35 @@
+﻿<Window x:Class="WpfAppProjekty.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfAppProjekty"
+        mc:Ignorable="d"
+        Title="Projekty" Height="450" Width="800">
+    <Grid>
+        <Button x:Name="buttonTest" Content="Test" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Click="buttonTest_Click" Width="50"/>
+        <ListView x:Name="listView" VerticalAlignment="Top" Margin="10,10,10,0" Height="250" SelectionChanged="listView_SelectionChanged">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Id}" Width="50"/>
+                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" Width="200"/>
+                    <GridViewColumn Header="Abbreviation" DisplayMemberBinding="{Binding Abbreviation}" Width="200"/>
+                    <GridViewColumn Header="Customer" DisplayMemberBinding="{Binding Customer}" Width="200"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button x:Name="buttonRefresh" Content="Refresh" HorizontalAlignment="Left" Margin="310,0,0,10" VerticalAlignment="Bottom" Click="buttonRefresh_Click" Width="90"/>
+        <TextBox x:Name="textBoxId" Margin="100,0,10,115" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Bottom"/>
+        <TextBox x:Name="textBoxName" Margin="100,0,10,90" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Bottom"/>
+        <TextBox x:Name="textBoxAbbreviation" Margin="100,0,10,65" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Bottom"/>
+        <TextBox x:Name="textBoxCustomer" Margin="100,0,10,40" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Bottom"/>
+        <Label Content="Id" HorizontalAlignment="Left" Margin="10,0,0,110" VerticalAlignment="Bottom"/>
+        <Label Content="Name" HorizontalAlignment="Left" Margin="10,0,0,85" VerticalAlignment="Bottom"/>
+        <Label Content="Abbreviation" HorizontalAlignment="Left" Margin="10,0,0,60" VerticalAlignment="Bottom"/>
+        <Label Content="Customer" HorizontalAlignment="Left" Margin="10,0,0,35" VerticalAlignment="Bottom"/>
+        <Button x:Name="buttonAdd" Content="Add" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom" Click="buttonAdd_Click" Width="90"/>
+        <Button x:Name="buttonUpdate" Content="Update" HorizontalAlignment="Left" Margin="110,0,0,10" VerticalAlignment="Bottom" Click="buttonUpdate_Click" Width="90"/>
+        <Button x:Name="buttonRemove" Content="Remove" HorizontalAlignment="Left" Margin="210,0,0,10" VerticalAlignment="Bottom" Click="buttonRemove_Click" Width="90"/>
+
+    </Grid>
+</Window>

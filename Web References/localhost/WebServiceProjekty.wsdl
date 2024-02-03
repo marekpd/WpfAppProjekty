@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://tempuri.org/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="Hello">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HelloResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="HelloResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Bye">
+        <s:complexType />
+      </s:element>
+      <s:element name="ByeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ByeResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProjectsCount">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetProjectsCountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetProjectsCountResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProjectsIds">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetProjectsIdsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetProjectsIdsResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetProject">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProjectResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetProjectResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="abbreviation" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="customer" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddProject">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="abbreviation" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="customer" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddProjectResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddProjectResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateProject">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="abbreviation" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="customer" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateProjectResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateProjectResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveProject">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveProjectResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RemoveProjectResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FindSubstringIndex">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="str" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="subs" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FindSubstringIndexResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="FindSubstringIndexResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FindSubstringIndex2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="str" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="subs" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FindSubstringIndex2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="FindSubstringIndex2Result" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="index" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloSoapIn">
+    <wsdl:part name="parameters" element="tns:Hello" />
+  </wsdl:message>
+  <wsdl:message name="HelloSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloResponse" />
+  </wsdl:message>
+  <wsdl:message name="ByeSoapIn">
+    <wsdl:part name="parameters" element="tns:Bye" />
+  </wsdl:message>
+  <wsdl:message name="ByeSoapOut">
+    <wsdl:part name="parameters" element="tns:ByeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetProjectsCountSoapIn">
+    <wsdl:part name="parameters" element="tns:GetProjectsCount" />
+  </wsdl:message>
+  <wsdl:message name="GetProjectsCountSoapOut">
+    <wsdl:part name="parameters" element="tns:GetProjectsCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetProjectsIdsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetProjectsIds" />
+  </wsdl:message>
+  <wsdl:message name="GetProjectsIdsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetProjectsIdsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetProjectSoapIn">
+    <wsdl:part name="parameters" element="tns:GetProject" />
+  </wsdl:message>
+  <wsdl:message name="GetProjectSoapOut">
+    <wsdl:part name="parameters" element="tns:GetProjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddProjectSoapIn">
+    <wsdl:part name="parameters" element="tns:AddProject" />
+  </wsdl:message>
+  <wsdl:message name="AddProjectSoapOut">
+    <wsdl:part name="parameters" element="tns:AddProjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateProjectSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateProject" />
+  </wsdl:message>
+  <wsdl:message name="UpdateProjectSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateProjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemoveProjectSoapIn">
+    <wsdl:part name="parameters" element="tns:RemoveProject" />
+  </wsdl:message>
+  <wsdl:message name="RemoveProjectSoapOut">
+    <wsdl:part name="parameters" element="tns:RemoveProjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="FindSubstringIndexSoapIn">
+    <wsdl:part name="parameters" element="tns:FindSubstringIndex" />
+  </wsdl:message>
+  <wsdl:message name="FindSubstringIndexSoapOut">
+    <wsdl:part name="parameters" element="tns:FindSubstringIndexResponse" />
+  </wsdl:message>
+  <wsdl:message name="FindSubstringIndex2SoapIn">
+    <wsdl:part name="parameters" element="tns:FindSubstringIndex2" />
+  </wsdl:message>
+  <wsdl:message name="FindSubstringIndex2SoapOut">
+    <wsdl:part name="parameters" element="tns:FindSubstringIndex2Response" />
+  </wsdl:message>
+  <wsdl:portType name="WebServiceProjektySoap">
+    <wsdl:operation name="Hello">
+      <wsdl:input message="tns:HelloSoapIn" />
+      <wsdl:output message="tns:HelloSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Bye">
+      <wsdl:input message="tns:ByeSoapIn" />
+      <wsdl:output message="tns:ByeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProjectsCount">
+      <wsdl:input message="tns:GetProjectsCountSoapIn" />
+      <wsdl:output message="tns:GetProjectsCountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProjectsIds">
+      <wsdl:input message="tns:GetProjectsIdsSoapIn" />
+      <wsdl:output message="tns:GetProjectsIdsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProject">
+      <wsdl:input message="tns:GetProjectSoapIn" />
+      <wsdl:output message="tns:GetProjectSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddProject">
+      <wsdl:input message="tns:AddProjectSoapIn" />
+      <wsdl:output message="tns:AddProjectSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateProject">
+      <wsdl:input message="tns:UpdateProjectSoapIn" />
+      <wsdl:output message="tns:UpdateProjectSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveProject">
+      <wsdl:input message="tns:RemoveProjectSoapIn" />
+      <wsdl:output message="tns:RemoveProjectSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FindSubstringIndex">
+      <wsdl:input message="tns:FindSubstringIndexSoapIn" />
+      <wsdl:output message="tns:FindSubstringIndexSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FindSubstringIndex2">
+      <wsdl:input message="tns:FindSubstringIndex2SoapIn" />
+      <wsdl:output message="tns:FindSubstringIndex2SoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebServiceProjektySoap" type="tns:WebServiceProjektySoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Hello">
+      <soap:operation soapAction="http://tempuri.org/Hello" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Bye">
+      <soap:operation soapAction="http://tempuri.org/Bye" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProjectsCount">
+      <soap:operation soapAction="http://tempuri.org/GetProjectsCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProjectsIds">
+      <soap:operation soapAction="http://tempuri.org/GetProjectsIds" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProject">
+      <soap:operation soapAction="http://tempuri.org/GetProject" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddProject">
+      <soap:operation soapAction="http://tempuri.org/AddProject" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateProject">
+      <soap:operation soapAction="http://tempuri.org/UpdateProject" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveProject">
+      <soap:operation soapAction="http://tempuri.org/RemoveProject" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindSubstringIndex">
+      <soap:operation soapAction="http://tempuri.org/FindSubstringIndex" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindSubstringIndex2">
+      <soap:operation soapAction="http://tempuri.org/FindSubstringIndex2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebServiceProjektySoap12" type="tns:WebServiceProjektySoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Hello">
+      <soap12:operation soapAction="http://tempuri.org/Hello" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Bye">
+      <soap12:operation soapAction="http://tempuri.org/Bye" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProjectsCount">
+      <soap12:operation soapAction="http://tempuri.org/GetProjectsCount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProjectsIds">
+      <soap12:operation soapAction="http://tempuri.org/GetProjectsIds" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProject">
+      <soap12:operation soapAction="http://tempuri.org/GetProject" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddProject">
+      <soap12:operation soapAction="http://tempuri.org/AddProject" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateProject">
+      <soap12:operation soapAction="http://tempuri.org/UpdateProject" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveProject">
+      <soap12:operation soapAction="http://tempuri.org/RemoveProject" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindSubstringIndex">
+      <soap12:operation soapAction="http://tempuri.org/FindSubstringIndex" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindSubstringIndex2">
+      <soap12:operation soapAction="http://tempuri.org/FindSubstringIndex2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebServiceProjekty">
+    <wsdl:port name="WebServiceProjektySoap" binding="tns:WebServiceProjektySoap">
+      <soap:address location="http://localhost:59349/WebServiceProjekty.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebServiceProjektySoap12" binding="tns:WebServiceProjektySoap12">
+      <soap12:address location="http://localhost:59349/WebServiceProjekty.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
