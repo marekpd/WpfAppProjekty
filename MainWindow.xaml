@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfAppProjekty"
         mc:Ignorable="d"
-        Title="Projekty" Height="450" Width="800">
+        Title="Správa projektov firmy." Height="450" Width="800">
     <Grid>
         <Button x:Name="buttonTest" Content="Test" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Click="buttonTest_Click" Width="50"/>
         <ListView x:Name="listView" VerticalAlignment="Top" Margin="10,10,10,0" Height="250" SelectionChanged="listView_SelectionChanged">
