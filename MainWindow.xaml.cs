@@ -38,11 +38,14 @@ namespace WpfAppProjekty
             try
             {
                 m_mojSvc = new localhost.WebServiceProjekty(); //napojenie na server
+                if (m_mojSvc == null) throw new Exception("Failed to establish a connection to the server: null");
 
                 //vypytanie hesla od uzivatela a overenie
                 PasswordDlg dlg = new PasswordDlg();
                 if (dlg.ShowDialog() != true) throw new Exception("Password is required."); //bool?
-                if (!m_mojSvc.Hello(dlg.Password)) throw new Exception("Failed to establish a connection to the server."); //patri sa pozdravit server
+
+                string errMsg;
+                if (!m_mojSvc.Hello(dlg.Password, out errMsg)) throw new Exception("Failed to establish a connection to the server: " + errMsg); //patri sa pozdravit server
 
                 listView.ItemsSource = m_projects; //previazanie ListView s kolekciou projektov
                 buttonRefresh_Click(null, null); //naplnenie kolekcie projektov (a zaroven aj ListView)

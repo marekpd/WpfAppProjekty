@@ -124,9 +124,10 @@ namespace WpfAppProjekty.localhost {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Hello", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public bool Hello(string password) {
+        public bool Hello(string password, out string errMsg) {
             object[] results = this.Invoke("Hello", new object[] {
                         password});
+            errMsg = ((string)(results[1]));
             return ((bool)(results[0]));
         }
         
@@ -494,6 +495,14 @@ namespace WpfAppProjekty.localhost {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((bool)(this.results[0]));
+            }
+        }
+        
+        /// <remarks/>
+        public string errMsg {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[1]));
             }
         }
     }
